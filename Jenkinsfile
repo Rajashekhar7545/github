@@ -1,24 +1,17 @@
-pipeline {
-    agent any
-
-    stages {
-        stage('Checkout') {
-            steps {
-                // Checkout the code from a Git repository
-                git 'https://github.com/your/repository.git'
-            }
-        }
-        stage('Build') {
-            steps {
-                // Execute the build steps here
-                sh 'mvn clean install' // Example Maven build command
-            }
-        }
-        stage('Deploy') {
-            steps {
-                // Deploy the built application
-                sh 'ssh user@server "deploy-script.sh"' // Example deployment script execution
-            }
-        }
-    }
+Pipeline  {
+ 	agent any
+ stages {
+ stage (“1 creating a folder”) {
+ steps {
+ 	sh “mkdir –p declarative folder”
+ sh “cd declarative folder”
+}
+}
+ stage (“2 creating a file”)
+ steps {
+ sh “touch test-file.txt”
+ sh “ls –al”
+}
+}
+)
 }
